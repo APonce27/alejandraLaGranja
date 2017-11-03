@@ -7,3 +7,22 @@ canvas {
     background: #2b0d3b;
     position: absolute;
 }
+
+.container {
+	background: #87D340;
+}
+
+.content-controlers {
+	text-align: center;
+	background: #EEFF5C;
+	margin: 10px 0; 
+}
+
+.animals-content {
+	background: #FFAF5E;
+	margin: 10px 0; 
+}
+
+.animal-card {
+	border: 1px solid #D3914E;
+}
