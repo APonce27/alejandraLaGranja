@@ -1,28 +1,70 @@
 html, body {
     padding: 0px;
     margin: 0px;
+    width: 100%;
 }
 
-canvas {
-    background: #2b0d3b;
+.mainContainer {
+    width: 100%;
+    display: flex;
+    height: 659px;
+    background-image: url(../images/granja_background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.popupContainer {
     position: absolute;
+    display: block;
+    z-index: 100000001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    opacity: 1;
+    background-color: rgba(0,0,0,0.82);
 }
 
-.container {
-	background: #87D340;
+.controlsContainer {
+    width: 30%;
+    min-width: 200px;
 }
 
-.content-controlers {
-	text-align: center;
-	background: #EEFF5C;
-	margin: 10px 0; 
+#farmContainer, .animalContainer {
+    width: 70%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    height: 310px;
 }
 
-.animals-content {
-	background: #FFAF5E;
-	margin: 10px 0; 
+#farmContainer {
+    background-color: #FFEA58;
 }
 
-.animal-card {
-	border: 1px solid #D3914E;
+.animalContainer {
+    background-color: lightpink;
+}
+
+.animalsContainer {
+    width: 70%;
+}
+
+.animalCardContainer{
+    width: 28%;
+    margin-left: 5%;
+    height: 300px;
+    background-color: lavenderblush;
+    margin-top: 10px;
+    display: inline-flex;
+    min-width: 180px;
+}
+
+.nombreAnimal {
+    color: #000;
+    font-family: verdana;
+    font-size: 16px;
+    margin: 0 auto;
+    padding-top: 10px;
+    height: 20px;
 }
