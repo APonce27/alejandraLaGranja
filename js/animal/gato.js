@@ -23,33 +23,6 @@ var Gato = (
 		Gato.prototype.brincar = function () {
 			console.log(this.nombre + ' soy un gato y estoy comiendo.');
 		}
-
-		Gato.prototype.producir = function () {
-			console.log('Ordennar');
-		};
-
-		Gato.prototype.crearProducto = function () {
-			//this.capacidadProduccion
-			//this.cantidadDeProducto = 0;
-			//this.velocidadDeProducion = 0
-
-			if (this.capacidadProduccion <= this.cantidadDeProducto) {
-				if (this.tiempo >= this.tiempoDeProduction) {
-					this.cantidadDeProducto += this.cantidadDeProductoPorTiempo;
-					this.tiempo = 0;
-					console.log(this.nombre + ' tiene ' + this.cantidadDeProducto + ' de producto!');
-				}
-			} else {
-				//Vaca llena
-			}
-
-		}
-
-		Gato.prototype.update = function () {
-			this.tiempo++;
-			this.crearProducto();
-		}
-
 		return Gato;
 	}
 )();

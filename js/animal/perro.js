@@ -23,33 +23,6 @@ var Perro = (
 		Perro.prototype.brincar = function () {
 			console.log(this.nombre + ' soy un perro y estoy comiendo.');
 		}
-
-		Perro.prototype.producir = function () {
-			console.log('Ordennar');
-		};
-
-		Perro.prototype.crearProducto = function () {
-			//this.capacidadProduccion
-			//this.cantidadDeProducto = 0;
-			//this.velocidadDeProducion = 0
-
-			if (this.capacidadProduccion <= this.cantidadDeProducto) {
-				if (this.tiempo >= this.tiempoDeProduction) {
-					this.cantidadDeProducto += this.cantidadDeProductoPorTiempo;
-					this.tiempo = 0;
-					console.log(this.nombre + ' tiene ' + this.cantidadDeProducto + ' de producto!');
-				}
-			} else {
-				//Vaca llena
-			}
-
-		}
-
-		Perro.prototype.update = function () {
-			this.tiempo++;
-			this.crearProducto();
-		}
-
 		return Perro;
 	}
 )();

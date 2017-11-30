@@ -25,7 +25,7 @@ var Cerdo = (
 		}
 
 		Cerdo.prototype.producir = function () {
-			console.log('Ordennar');
+			console.log('tomar tocino');
 		};
 
 		Cerdo.prototype.crearProducto = function () {
@@ -40,7 +40,7 @@ var Cerdo = (
 					console.log(this.nombre + ' tiene ' + this.cantidadDeProducto + ' de producto!');
 				}
 			} else {
-				//Vaca llena
+				//cerdo llena
 			}
 
 		}

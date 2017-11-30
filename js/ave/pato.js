@@ -25,7 +25,7 @@ var Pato = (
 		}
 
 		Pato.prototype.producir = function () {
-			console.log('Ordennar');
+			console.log('recolectar huevo');
 		};
 
 		Pato.prototype.crearProducto = function () {

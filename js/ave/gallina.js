@@ -25,7 +25,7 @@ var Gallina = (
 		}
 
 		Gallina.prototype.producir = function () {
-			console.log('Ordennar');
+			console.log('recolectar huevo');
 		};
 
 		Gallina.prototype.crearProducto = function () {
@@ -40,7 +40,7 @@ var Gallina = (
 					console.log(this.nombre + ' tiene ' + this.cantidadDeProducto + ' de producto!');
 				}
 			} else {
-				//Vaca llena
+				//gallina llena
 			}
 
 		}
