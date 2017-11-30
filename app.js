@@ -94,27 +94,27 @@ function init() {
 
     update();
 
-    //---------------------Cargar informacion Animal---------------------
+    //---------------------Cargar informacion Granja---------------------
 
-    var granjaDinero = document.getElementById('granjaDinero');
+    var granjaDinero = document.getElementById('dineroGranja');
     granjaDinero.innerHTML = "Dinero: " + "$" + granja.dinero;
 
-    var granjaHuevos = document.getElementById('granjaHuevos');
+    var granjaHuevos = document.getElementById('huevosGranja');
     granjaHuevos.innerHTML = "Huevos: " + granja.huevos;
 
-    var granjaLeche = document.getElementById('granjaLeche');
+    var granjaLeche = document.getElementById('lecheGranja');
     granjaLeche.innerHTML = "Leche: " + granja.leche;
 
-    var granjaTocino = document.getElementById('granjaTocino');
+    var granjaTocino = document.getElementById('tocinoGranja');
     granjaTocino.innerHTML = "Tocino: " + granja.tocino;
 
-    var granjaMaiz = document.getElementById('granjaMaiz');
+    var granjaMaiz = document.getElementById('maizGranja');
     granjaMaiz.innerHTML = "Maiz: " + granja.maiz;
 
-    var granjaAlimento = document.getElementById('granjaAlimento');
+    var granjaAlimento = document.getElementById('alimentoGranja');
     granjaAlimento.innerHTML = "Alimento: " + granja.alimento;
 
-    var granjaPasto = document.getElementById('granjaPasto');
+    var granjaPasto = document.getElementById('pastoGranja');
     granjaPasto.innerHTML = "Pasto: " + granja.pasto;
 
     document.getElementById('btnCVaca').addEventListener('click', btnCVacaAction, false);
@@ -122,64 +122,62 @@ function init() {
 
     //---------------------Cargar informacion Animal---------------------
     function onAnimalCardClick(event) {
-        // console.log(event);
-
-        currentAnimalSelected = getAnimalByName(event.target);
-        console.log(currentAnimalSelected);
-
-        // event.target.style.background = animal.color;
-        animalContainer_title.innerHTML = currentAnimalSelected.nombre;
-
-        var animalEdad = document.getElementById('animalEdad');
-        animalEdad.innerHTML = "Edad: " + currentAnimalSelected.edad + "años";
-
-        var animalAltura = document.getElementById('animalAltura');
-        animalAltura.innerHTML = "Altura: " + currentAnimalSelected.altura + "m";
-
-        var animalPeso = document.getElementById('animalPeso');
-        animalPeso.innerHTML = "Peso: " + currentAnimalSelected.peso + "g";
-
-        var animalCapEstomago = document.getElementById('animalCapEstomago');
-        animalCapEstomago.innerHTML = "Capacidad de estomago: " + currentAnimalSelected.capacidadEstomago;
-
-        var animalCapAgua = document.getElementById('animalCapAgua');
-        animalCapAgua.innerHTML = "Consumo de agua: " + currentAnimalSelected.capacidaConsumoAgua;
-
-        var animalCapAlimento = document.getElementById('animalCapAlimento');
-        animalCapAlimento.innerHTML = "Consumo de alimento: " + currentAnimalSelected.capacidadConsumoAlimento;
-
-        var animalCapProduccion = document.getElementById('animalCapProduccion');
-        animalCapProduccion.innerHTML = "Cantidad de producción: " + currentAnimalSelected.cantidadDeProducto;
-
-        var animalTipoProduccion = document.getElementById('animalTipoProduccion');
-        animalTipoProduccion.innerHTML = "Tipo de Producción: " + currentAnimalSelected.tipoDeProduccion;
-
-        var animalFelicidad = document.getElementById('animalFelicidad');
-        animalFelicidad.innerHTML = "Nivel de felicidad: " + currentAnimalSelected.felicidad + "%";
-
-        var btnComer = document.getElementById('comerBtn');
-        btnComer.innerHTML = "Comer";
-        btnComer.classList.add('btnProduccion');
-
-        var btnBeber = document.getElementById('beberBtn');
-        btnBeber.innerHTML = "Beber";
-        btnBeber.classList.add('btnProduccion');
-
-        var btnProducir = document.getElementById('producirBtn');
-        var accionProducir = determinarProduccion(currentAnimalSelected.tipo)
-
-        btnProducir.innerHTML = accionProducir;
-
-        if (accionProducir) {
-            btnProducir.classList.add('btnProduccion');
-            btnProducir.classList.remove('btnOcultar');
-        } else {
-            btnProducir.classList.remove('btnProduccion');
-            btnProducir.classList.add('btnOcultar');
-        };
-    }
-
-    function getAnimalByName(target) {
+        
+                selectAnimal = getAnimalByName(event.target);
+                console.log(selectAnimal);
+        
+                animalContainer_title.innerHTML = selectAnimal.nombre;
+        
+                var animalEdad = document.getElementById('animalEdad');
+                animalEdad.innerHTML = `Edad: ${selectAnimal.edad} años`;
+        
+                var animalAltura = document.getElementById('animalAltura');
+                animalAltura.innerHTML = `Altura: ${selectAnimal.altura}m`;
+        
+                var animalPeso = document.getElementById('animalPeso');
+                animalPeso.innerHTML = `Peso: ${selectAnimal.peso} g`;
+        
+                var animalCapEstomago = document.getElementById('animalCapEstomago');
+                animalCapEstomago.innerHTML = `Capacidad de estomago: ${selectAnimal.capacidadEstomago}`;
+        
+                var animalCapAgua = document.getElementById('animalCapAgua');
+                animalCapAgua.innerHTML = `Consumo de agua: ${selectAnimal.capacidaConsumoAgua}`;
+        
+                var animalCapAlimento = document.getElementById('animalCapAlimento');
+                animalCapAlimento.innerHTML = `Consumo de alimento: ${selectAnimal.capacidadConsumoAlimento}`;
+        
+                var animalCapProduccion = document.getElementById('animalCapProduccion');
+                animalCapProduccion.innerHTML = `Cantidad de producción: ${parseFloat(Math.round(selectAnimal.cantidadDeProducto * 100) / 100).toFixed(2)}`;
+        
+                var animalTipoProduccion = document.getElementById('animalTipoProduccion');
+                animalTipoProduccion.innerHTML = `Tipo de Producción: ${selectAnimal.tipoDeProduccion}`;
+        
+                var animalFelicidad = document.getElementById('animalFelicidad');
+                animalFelicidad.innerHTML = `Nivel de felicidad: ${selectAnimal.felicidad}%`;
+        
+                var btnComer = document.getElementById('comerBtn');
+                btnComer.innerHTML = "Comer";
+                btnComer.classList.add('btnStyle');
+        
+                var btnBeber = document.getElementById('beberBtn');
+                btnBeber.innerHTML = "Beber";
+                btnBeber.classList.add('btnStyle');
+        
+                var btnProducir = document.getElementById('producirBtn');
+                var accionProducir = determinarProduccion(selectAnimal.tipo)
+        
+                btnProducir.innerHTML = accionProducir;
+        
+                if (accionProducir) {
+                    btnProducir.classList.add('btnStyle');
+                    btnProducir.classList.remove('btnOcultar');
+                } else {
+                    btnProducir.classList.remove('btnStyle');
+                    btnProducir.classList.add('btnOcultar');
+                };
+            }
+        
+            function getAnimalByName(target) {
         
                 var animal = null;
         
@@ -196,8 +194,8 @@ function init() {
                 } else {
                     return null;
                 }
+        
             }
-
     function determinarProduccion(panimal) {
         var procesoProduccion = "";
 
