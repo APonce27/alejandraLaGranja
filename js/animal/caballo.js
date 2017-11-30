@@ -6,10 +6,10 @@ var Caballo = (
 			this.precio = 500;
 			this.tipo = 'caballo';
 
-			this.cantidadDeProducto = 0;
+			//this.cantidadDeProducto = 0;
 			// this.velocidadDeProducion = 2 * this.FRAMERATE;
-			this.tiempoDeProduction = 2 * this.FRAMERATE;
-			this.cantidadDeProductoPorTiempo = 1 * (this.felicidad / 100);
+			//this.tiempoDeProduction = 2 * this.FRAMERATE;
+			//this.cantidadDeProductoPorTiempo = 1 * (this.felicidad / 100);
 		}
 		//Heredar los metodos definidos en Animal (prototype)
 		Caballo.prototype = Object.create(Animal.prototype);
@@ -25,7 +25,7 @@ var Caballo = (
 		}
 
 		Caballo.prototype.producir = function () {
-			console.log('Ordennar');
+			
 		};
 
 		Caballo.prototype.crearProducto = function () {
@@ -40,7 +40,6 @@ var Caballo = (
 					console.log(this.nombre + ' tiene ' + this.cantidadDeProducto + ' de producto!');
 				}
 			} else {
-				//Vaca llena
 			}
 
 		}

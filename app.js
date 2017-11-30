@@ -5,7 +5,7 @@ function init() {
     var animals = [];
     var currentAnimalSelected = null;
 
-    //var granja = new Granja(2000, 10, 10, 10, 10, 100, 10);
+    var granja = new Granja(2000, 10, 10, 10, 10, 100, 10);
     var precioDeVaca = new Vaca().precio;
 
     var vaca = new Vaca('Matilde', '10', '1.40', '500', '200', '75', '125', 80, 'Leche', '60');
@@ -28,32 +28,32 @@ function init() {
 
     animals.push(vaca);
 
-    var perro = new Perro('Renji', '6', '0.70', '15', '75', '20', '55', '0', 'N/A', '100');
+    var perro = new Perro('Tommy', '6', '0.70', '15', '75', '20', '55', '0', 'N/A', '100');
     perro.color = 'purple';
     perro.tipo = 'perro'
     animals.push(perro);
 
-    var gato = new Gato('Misifus', '2', '0.45', '5', '45', '15', '30', '0', 'N/A', '100');
+    var gato = new Gato('Benjie', '2', '0.45', '5', '45', '15', '30', '0', 'N/A', '100');
     gato.color = 'purple';
     gato.tipo = 'gato'
     animals.push(gato);
 
-    var cerdo = new Cerdo('Peggy', '4', '1', '92', '115', '25', '85', '30', 'Tocino', '100');
+    var cerdo = new Cerdo('Pinta', '4', '1', '92', '115', '25', '85', '30', 'Tocino', '100');
     cerdo.color = 'purple';
     cerdo.tipo = 'cerdo'
     animals.push(cerdo);
 
-    var caballo = new Caballo('MR.Ed', '2', '1.45', '5', '45', '15', '30', '0', 'N/A', '100');
+    var caballo = new Caballo('Lucero', '2', '1.45', '5', '45', '15', '30', '0', 'N/A', '100');
     caballo.color = 'purple';
     caballo.tipo = 'caballo';
     animals.push(caballo);
 
-    var gallina = new Gallina('Claudia', '2', '0.35', '3', '15', '6', '9', '30', 'Huevos', '100');
+    var gallina = new Gallina('Misinga', '2', '0.35', '3', '15', '6', '9', '30', 'Huevos', '100');
     gallina.color = 'purple';
     gallina.tipo = 'gallina'
     animals.push(gallina);
 
-    var pato = new Pato('Lucas', '3', '0.38', '4', '23', '8', '15', '30', 'Huevos', '100');
+    var pato = new Pato('Donny', '3', '0.38', '4', '23', '8', '15', '30', 'Huevos', '100');
     pato.color = 'purple';
     pato.tipo = 'pato'
     animals.push(pato);
@@ -97,7 +97,7 @@ function init() {
     //---------------------Cargar informacion Animal---------------------
 
     var granjaDinero = document.getElementById('granjaDinero');
-    granjaDinero.innerHTML = "Dienero: " + "$" + granja.dinero;
+    granjaDinero.innerHTML = "Dinero: " + "$" + granja.dinero;
 
     var granjaHuevos = document.getElementById('granjaHuevos');
     granjaHuevos.innerHTML = "Huevos: " + granja.huevos;
@@ -124,7 +124,7 @@ function init() {
     function onAnimalCardClick(event) {
         // console.log(event);
 
-        currentAnimalSelected = getAnimalByName(event.target.id);
+        currentAnimalSelected = getAnimalByName(event.target);
         console.log(currentAnimalSelected);
 
         // event.target.style.background = animal.color;
@@ -179,14 +179,24 @@ function init() {
         };
     }
 
-    function getAnimalByName(nombre) {
-        for (var i = 0; i < animals.length; i++) {
-            if (animals[i].nombre === nombre) {
-                return animals[i];
+    function getAnimalByName(target) {
+        
+                var animal = null;
+        
+                for (var i = 0; i < animals.length; i++) {
+                    if (animals[i].nombre === target.id) {
+                        animal = animals[i];
+                    }
+                }
+        
+                if (animal === null && target.parentElement !== null) {
+                    return getAnimalByName(target.parentElement);
+                } else if (animal !== null) {
+                    return animal;
+                } else {
+                    return null;
+                }
             }
-        }
-        return null;
-    }
 
     function determinarProduccion(panimal) {
         var procesoProduccion = "";
@@ -244,7 +254,7 @@ function init() {
 
             //3. Agregar el elemento que representa la vaca en UI
             crearAnimalUI(vaca);
-            document.getElementById('granjaDinero').innerHTML = "Dienero: " + "$" + granja.dinero;
+            document.getElementById('granjaDinero').innerHTML = "Dinero: " + "$" + granja.dinero;
         }
     }
 
@@ -274,12 +284,5 @@ function init() {
         console.log(e);
         currentAnimalSelected.producir();
     }
-
-    // <button type="button" id="btnCVaca">Vaca</button>
-    // <button type="button" id="btnCGallina">Gallina</button>
-    // <button type="button" id="btnCCerdo">Cerdo</button>
-    // <button type="button" id="btnCAlimento">Alimento</button>
-    // <button type="button" id="btnCPasto">Pasto</button>
-    // <button type="button" id="btnCMaiz">Maiz</button>
 
 }

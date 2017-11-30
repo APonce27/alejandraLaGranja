@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-    <title>App</title>
+    <title> Farm App</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/style.css" rel="stylesheet">
     <script src="app.js"></script>
+    <script src="js/granja.js"></script>
     <script src="js/animal.js"></script>
     <script src="js/animal/caballo.js"></script>
     <script src="js/animal/cerdo.js"></script>
@@ -21,7 +22,23 @@
 
 <body>
     <div class="mainContainer">
-        <div class="popupContainer">hhkjkjojoloo hho ho oh oho oho </div>
+        <div id="popUpCompras" class="popupContainer">
+            <div>
+                <button type="button" id="btnCompVaca">Vaca</button>
+                <button type="button" id="btnCompGallina">Gallina</button>
+                <button type="button" id="btnCompCerdo">Cerdo</button>
+                <button type="button" id="btnCompAlimento">Alimento</button>
+                <button type="button" id="btnCompPasto">Pasto</button>
+                <button type="button" id="btnCompMaiz">Maiz</button>
+            </div>
+        </div>
+        <div id="popUpVentas" class="popupContainer">
+                <div>
+                    <button type="button" id="btnVentaHuevos">Huevos</button>
+                    <button type="button" id="btnVentaLeche">Leche</button>
+                    <button type="button" id="btnVentaTocino">Tocino</button>
+                </div>
+            </div>
         <div class="controlsContainer">
             <div id="farmContainer">
 
