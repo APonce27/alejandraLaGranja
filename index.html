@@ -16,29 +16,10 @@
     <script src="js/animal/Vaca.js"></script>
     <script src="js/ave/gallina.js"></script>
     <script src="js/ave/pato.js"></script>
-
-
 </head>
 
 <body>
     <div class="mainContainer">
-        <div id="popUpCompras" class="popupContainer">
-            <div>
-                <button type="button" id="btnCompVaca">Vaca</button>
-                <button type="button" id="btnCompGallina">Gallina</button>
-                <button type="button" id="btnCompCerdo">Cerdo</button>
-                <button type="button" id="btnCompAlimento">Alimento</button>
-                <button type="button" id="btnCompPasto">Pasto</button>
-                <button type="button" id="btnCompMaiz">Maiz</button>
-            </div>
-        </div>
-        <div id="popUpVentas" class="popupContainer">
-                <div>
-                    <button type="button" id="btnVentaHuevos">Huevos</button>
-                    <button type="button" id="btnVentaLeche">Leche</button>
-                    <button type="button" id="btnVentaTocino">Tocino</button>
-                </div>
-            </div>
         <div class="controlsContainer">
             <div id="farmContainer">
                 <h2>Granja</h2>
@@ -56,11 +37,10 @@
                     <button type="button" id="btnVender" class="btnCont">Vender</button>
                 </div>
             </div>
-
-            <div class="animalContainer">
+            <div id="animalContainer" class="animalContainer">
                 <div id="informacionAnimal">
                     <h2 id="animalTitle">Información Animal</h2>
-                    <p id="animalEdad"></p>
+                    <p id="animalEdad">Seleccione un Animal</p>
                     <p id="animalAltura"></p>
                     <p id="animalPeso"></p>
                     <p id="animalCapEstomago"></p>
@@ -71,18 +51,65 @@
                     <p id="animalFelicidad"></p>
                 </div>
                 <div class="containerBtns">
-                    <button type="button" id="producirBtn" class="btnCont">Comprar</button>
-                    <button type="button" id="comerBtn" class="btnCont">Vender</button>
-                    <button type="button" id="beberBtn" class="btnCont">Vender</button>
+                    <button type="button" id="producirBtn" class="btnCont"></button>
+                    <button type="button" id="comerBtn" class="btnCont"></button>
+                    <button type="button" id="beberBtn" class="btnCont"></button>
                 </div>
-
             </div>
         </div>
-
         <div id="animalsContainer" class="animalsContainer">
            <!-- <div class="animalCardContainer"></div>-->
         </div>
-
+    </div>
+    <div id="popUpCompras" class="popupContainer">
+        <div class="compras">
+            <button type="button" id="cerrarCompraPopUp" class="btnCont">
+                <img src="images/close-btn.png">
+            </button>
+            <h2>Comprar</h2>
+            <h3>Animal:</h3>
+            <select class="slct" id="slctAnimal">
+                <option value="">Seleccione un animal</option>
+                <option value="vaca">Vaca</option>
+                <option value="cerdo">Cerdo</option>
+                <option value="caballo">Caballo</option>
+                <option value="gallina">Gallina</option>
+                <option value="pato">Pato</option>
+                <option value="perro">Perro</option>
+                <option value="gato">Gato</option>
+            </select>
+            <label for="nombreNuevoAnimal">Nombre:</label>
+            <input type="text" class="sltstyle" id="nombreNuevoAnimal">
+            <button class="btnCont" type="button" id="btnComprarAnimal">Comprar Animal</button>
+            <br>
+            <br>
+            <h3>Alimento:</h3>
+            <select class="slct" id="slctAlimento">
+                <option value="">Seleccione un alimento</option>
+                <option value="alimento">Alimento</option>
+                <option value="pasto">Pasto</option>
+                <option value="maiz">Maiz</option>   
+            </select>
+            <label for="cantidadAlimento">Cantidad:</label>
+            <input type="number" class="sltstyle" id="cantidadAlimento" min="1">
+            <button class="btnCont" type="button" id="btnComprarAlimento">Comprar Alimento</button>
+        </div>
+    </div>
+    <div id="popUpVentas" class="popupContainer">
+        <div class="ventas">
+            <button type="button" id="cerrarVentaPopUp" class="btnCont">
+                    <img src="images/close-btn.png">
+            </button>
+            <select id="slctVender" class="slct">
+                <option value="">Seleccione un producto</option>
+                <option value="leche">Leche</option>
+                <option value="huevos">Huevos</option>
+                <option value="tocino">Tocino</option>
+            </select>  
+            <label for="cantidadProducto">Cantidad:</label>
+            <input type="number" class="sltstyle" id="cantidadProducto" min="1">
+            <button class="btnCont" type="button" id="btnVenderProducto">Vender</button>             
+        </div>
     </div>
 </body>
 
