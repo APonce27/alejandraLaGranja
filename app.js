@@ -257,23 +257,69 @@ function init() {
         popUpCompras.classList.add('ocultarPopUp');
     }
 
-    function btnCVacaAction(e) {
+    function btnComprarAnimal(e) {
 
-        //1. Validar la comprar = dinero para comprar la vaca
-        console.log(animals);
+        var nuevoAnimalNombre = document.getElementById('nombreNuevoAnimal').value,
+            animalSeleccionado = document.getElementById('slctAnimal').value,
+            animalNuevo,
+            animalPrecio;
 
-        if (granja.dinero >= precioDeVaca) {
-            granja.dinero -= precioDeVaca;
-            //2. Crear Vaca y agragarla a lista de animales
-            var vaca = new Vaca('Clara', 1, 2, 100, 100, 5, 5, 5, 'leche', 100);
-            vaca.color = 'red';
-            animals.push(vaca);
+            if(nuevoAnimalNombre == "") {
+                console.log("Ingrese un nombre válido");
+            } else {
+                console.log(animals);
+                switch (animalSeleccionado) {
+                    case 'vaca':
+                    animalPrecio = precioDeVaca;
+                    animalNuevo = new Vaca(nuevoAnimalNombre, 1, 2, 100, 100, 5, 5, 70, 'leche', 100, 25, 10);
+                    break;
 
-            //3. Agregar el elemento que representa la vaca en UI
-            crearAnimalUI(vaca);
-            document.getElementById('granjaDinero').innerHTML = "Dinero: " + "$" + granja.dinero;
+                    case 'cerdo':
+                    animalPrecio = precioDeCerdo;
+                    animalNuevo = new Cerdo(nuevoAnimalNombre, 4, 1, 92, 115, 25, 85, 45, 'tocino', 100, 25, 10);
+                    break;
+
+                    case 'caballo':
+                    animalPrecio = precioDeCaballo;
+                    animalNuevo = new Caballo(nuevoAnimalNombre, 2, 1.45, 5, 45, 15, 30, 'N/A', 100, 25, 10);
+                    break;
+
+                    case 'gallina':
+                    animalPrecio = precioDeGallina;
+                    animalNuevo = new Gallina(nuevoAnimalNombre,2, 0.35, 3, 15, 6, 9, 30, 'huevos', 100, 25, 10);
+                    break;
+
+                    case 'pato':
+                    animalPrecio = precioDePato;
+                    animalNuevo = new Pato(nuevoAnimalNombre, 3, 0.38, 4, 23, 8, 15, 30, 'huevos', 100, 25, 10);
+                    break;
+
+                    case 'perro':
+                    animalPrecio = precioDePerro;
+                    animalNuevo = new Perro(nuevoAnimalNombre, 6, 0.70, 15, 75, 20, 55, 0, 'N/A', 100, 25, 10);
+                    break;
+
+                    case 'gato':
+                    animalPrecio = precioDeGato;
+                    animalNuevo = new Gato(nuevoAnimalNombre, 2, 0.45, 5, 45, 15, 30, 0, 'N/A', 100, 25, 10);
+                    break;
+
+                    default:
+                        console.log('Seleccione un animal');
+                }
+
+                if (granja.dinero >= animalPrecio) {
+                    granja.dinero -= animalPrecio;
+
+                    animals.push(animalNuevo);
+
+                    crearAnimalUI(animalNuevo);
+                    document.getElementById('dineroGranja').innerHTML = `Dinero: $ ${granja.dinero}`;
+                }
+
+                ocultarPopUp();
+            }
         }
-    }
 
     function crearAnimalUI(panimal) {
 

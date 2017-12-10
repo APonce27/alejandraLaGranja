@@ -40,7 +40,7 @@ var Cerdo = (
 					console.log(this.nombre + ' tiene ' + this.cantidadDeProducto + ' de producto!');
 				}
 			} else {
-				//cerdo llena
+				//cerdo lleno
 			}
 
 		}
