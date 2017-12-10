@@ -81,8 +81,8 @@ function init() {
 
     var btnComprar = document.getElementById('btnComprar');
     var btnVender = document.getElementById('btnVender');
-    var btnCerrarPopUpVentas = document.getElementById('cerrarPopUpV');
-    var btnCerrarPopUpCompras = document.getElementById('cerrarPopUpC');
+    var btnCerrarPopUpVentas = document.getElementById('cerrarVentaPopUp');
+    var btnCerrarPopUpCompras = document.getElementById('cerrarCompraPopUp');
 
     var popUpVentas = document.getElementById('popUpVentas');
     popUpVentas.classList.add('ocultarPopUp')
@@ -130,8 +130,14 @@ function init() {
     var granjaPasto = document.getElementById('pastoGranja');
     granjaPasto.innerHTML = "Pasto: " + granja.pasto;
 
-    document.getElementById('btnCVaca').addEventListener('click', btnCVacaAction, false);
+    document.getElementById('btnComprarAnimal').addEventListener('click', btnComprarAnimal, false);
+    document.getElementById('btnComprarAlimento').addEventListener('click', btnComprarAlimento, false);
     document.getElementById('producirBtn').addEventListener('click', producirBtnAction, false);
+    document.getElementById('btnVenderProducto').addEventListener("click", venderProducto, false);
+    document.getElementById('comerBtn').addEventListener('click', comer, false);
+    document.getElementById('beberBtn').addEventListener('click', beber, false);
+    document.getElementById('acariciarBtn').addEventListener('click', acariciar, false);
+
 
     //---------------------Cargar informacion Animal---------------------
     function onAnimalCardClick(event) {
