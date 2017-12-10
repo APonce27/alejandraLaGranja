@@ -8,10 +8,12 @@ html, body {
 .mainContainer {
     width: 100%;
     display: flex;
-    height: 659px;
+    /*height: 659px;*/
     background-image: url(../images/granja_background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    flex-flow: row wrap;
+    justify-content: left;
 }
 
 .popupContainer {
@@ -27,8 +29,10 @@ html, body {
 }
 
 .controlsContainer {
-    width: 30%;
     min-width: 200px;
+    width: 25%;
+    display: flex;
+    flex-flow: column wrap;
 }
 
 #farmContainer, .animalContainer {
@@ -57,9 +61,25 @@ html, body {
     height: 300px;
     background: rgba(0,0,0,0.65);
     margin-top: 10px;
-    display: inline-flex;
+    display: block;
     min-width: 180px;
+    float: left;
 }
+
+.animalCardContainer h3 {
+    color: #F2AB27;
+    text-align: center;
+    font-size: 24px;
+}
+
+.animalCardContainer p {
+    color: #02C7F4;
+    text-align: center;
+    font-size: 18px;
+}
+
+
+
 
 .nombreAnimal {
     color: #000;
@@ -68,4 +88,45 @@ html, body {
     margin: 0 auto;
     padding-top: 10px;
     height: 20px;
+}
+
+.animalCardContainer div{
+    width: 130px;
+    height: 120px;
+    margin: 1.5em auto 2em;
+    background-repeat: no-repeat;
+}
+
+/*Animales*/
+.caballo {
+    background: url(../images/animales/caballo.png);
+}
+
+.cerdo {
+    background: url(../images/animales/cerdo.png);
+}
+
+.gallina {
+    background: url(../images/animales/gallina.png);
+}
+
+.gato {
+    background: url(../images/animales/gato.png);
+}
+
+.pato {
+    background: url(../images/animales/pato.png);
+}
+
+.perro {
+    background: url(../images/animales/perro.png);
+}
+
+.vaca {
+    background: url(../images/animales/vaca.png);
+}
+
+/*PopUps*/
+.ocultarPopUp{
+    display: none;
 }

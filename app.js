@@ -6,7 +6,20 @@ function init() {
     var currentAnimalSelected = null;
 
     var granja = new Granja(2000, 10, 10, 10, 10, 100, 10);
-    var precioDeVaca = new Vaca().precio;
+    var precioDeVaca = new Vaca().precio,
+        precioDeCerdo = new Cerdo().precio,
+        precioDeCaballo = new Caballo().precio,
+        precioDePerro = new Perro().precio,
+        precioDeGato = new Gato().precio,
+        precioDeGallina = new Gallina().precio,
+        precioDePato = new Pato().precio,
+        precioDePasto = new Granja().precioPasto,
+        precioDeAlimento = new Granja().precioAlimento,
+        precioDeMaiz = new Granja().precioMaiz,
+        precioDeLeche = new Granja().precioLeche,
+        precioDeHuevos = new Granja().precioHuevos,
+        precioDeTocino = new Granja().precioTocino,
+        granja = null;
 
     var vaca = new Vaca('Matilde', '10', '1.40', '500', '200', '75', '125', 80, 'Leche', '60');
     vaca.color = 'blue';
@@ -57,10 +70,10 @@ function init() {
     pato.color = 'purple';
     pato.tipo = 'pato'
     animals.push(pato);
-    // var granja = new Granja('2000', '200', '600', '60', '50', '3000', '1')
+    var granja = new Granja('2000', '200', '600', '60', '50', '3000', '1')
 
     console.log(animals);
-    //console.log(granja);
+    console.log(granja);
 
     var animalContainer_title = document.getElementById('animalTitle');
     var animalsContainer = document.getElementById('animalsContainer');
@@ -71,11 +84,11 @@ function init() {
     var btnCerrarPopUpVentas = document.getElementById('cerrarPopUpV');
     var btnCerrarPopUpCompras = document.getElementById('cerrarPopUpC');
 
-    //var popUpVentas = document.getElementById('popUpVentas');
-    //popUpVentas.classList.add('ocultarPopUp')
+    var popUpVentas = document.getElementById('popUpVentas');
+    popUpVentas.classList.add('ocultarPopUp')
 
-    //var popUpCompras = document.getElementById('popUpCompras');
-    //popUpCompras.classList.add('ocultarPopUp')
+    var popUpCompras = document.getElementById('popUpCompras');
+    popUpCompras.classList.add('ocultarPopUp')
 
     //---------------------Seleccion de animal---------------------
     for (var i = 0; i < animals.length; i++) {
