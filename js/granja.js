@@ -11,6 +11,9 @@ var Granja = (
 			this.precioMaiz = 3;
 			this.precioAlimento = 5;
 			this.precioPasto = 2;
+			this.precioHuevos = 8;
+			this.precioLeche = 10;
+			this.precioTocino = 15;
 		}
 
 		return Granja;

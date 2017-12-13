@@ -1,9 +1,10 @@
 var Huevos = (
 	function () {
-		function Huevos() {
-            
+		function Huevos(pnombre) {
+
 		}
 		//Class Methods
+
 
 		return Huevos;
 	}

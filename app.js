@@ -321,6 +321,45 @@ function init() {
             }
         }
 
+
+        function btnComprarAlimento(e) {
+            var alimentoSeleccionado = document.getElementById('slctAlimento').value,
+                cantPorComprar = parseInt(document.getElementById('cantidadAlimento').value);
+                console.log(cantPorComprar);
+            var asignarPrecioDeAlimento = null,
+                renovarDato = null,
+                producto = null;
+
+                switch(alimentoSeleccionado) {
+                    case 'alimento':
+                    asignarPrecioDeAlimento = precioDeAlimento;
+                    renovarDato = document.getElementById(alimentoGranja);
+                    producto = granja.alimento;
+                    break;
+
+                    case 'pasto': 
+                    asignarPrecioDeAlimento = precioDePasto;
+                    renovarDato = document.getElementById(pastoGranja);
+                    producto = granja.pasto;
+                    break;
+                    
+                    case 'maiz': 
+                    asignarPrecioDeAlimento = precioDeMaiz;
+                    renovarDato = document.getElementById(maizGranja);
+                    producto = granja.maiz;
+                    break;
+
+                    default:
+                        console.log('seleccione un alimento');                }
+        }
+
+
+
+
+
+
+
+
     function crearAnimalUI(panimal) {
 
         var animal = document.createElement('div');
