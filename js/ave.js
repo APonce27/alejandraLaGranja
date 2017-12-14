@@ -1,6 +1,6 @@
 var Ave = (
 	function () {
-		function Ave(pnombreAve) {
+		function Ave(pnombre) {
 		}
 		//Class Methods
 		Ave.prototype.comer = function () {
