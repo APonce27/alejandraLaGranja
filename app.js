@@ -21,56 +21,55 @@ function init() {
         precioDeTocino = new Granja().precioTocino,
         granja = null;
 
-    var vaca = new Vaca('Matilde', '10', '1.40', '500', '200', '75', '125', 80, 'Leche', '60');
-    vaca.color = 'blue';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var respuesta = JSON.parse(xhttp.responseText);
+    
+                console.log(respuesta);
+    
+                var objetoAnimal = respuesta.animales,
+                    objetoGranja = respuesta.granja;
+    
+                for (var i = 0; i < objetoAnimal.length; i++) {
+                    switch (objetoAnimal[i].tipo) {
+                        case "vaca":
+                            var nuevoAnimal = new Vaca(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].tamanno, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, objetoAnimal[i].apetito, objetoAnimal[i].sed);
+                            animals.push(nuevoAnimal);
+                            break;
+                        case "gallina":
+                            var nuevoAnimal = new Gallina(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].tamanno, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, objetoAnimal[i].apetito, objetoAnimal[i].sed);
+                            animals.push(nuevoAnimal);
+                            break;
+                        case "pato":
+                            var nuevoAnimal = new Pato(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].tamanno, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, objetoAnimal[i].apetito, objetoAnimal[i].sed);
+                            animals.push(nuevoAnimal);
+                            break;
+                        case "cerdo":
+                            var nuevoAnimal = new Cerdo(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].tamanno, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, objetoAnimal[i].apetito, objetoAnimal[i].sed);
+                            animals.push(nuevoAnimal);
+                            break;
+                        case "caballo":
+                            var nuevoAnimal = new Caballo(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].tamanno, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, objetoAnimal[i].apetito, objetoAnimal[i].sed);
+                            animals.push(nuevoAnimal);
+                            break;
+                        case "perro":
+                            var nuevoAnimal = new Perro(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].tamanno, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, objetoAnimal[i].apetito, objetoAnimal[i].sed);
+                            animals.push(nuevoAnimal);
+                            break;
+                        case "gato":
+                            var nuevoAnimal = new Gato(objetoAnimal[i].nombre, objetoAnimal[i].edad, objetoAnimal[i].altura, objetoAnimal[i].peso, objetoAnimal[i].tamanno, objetoAnimal[i].capacidadEstomago, objetoAnimal[i].capacidadConsumoAgua, objetoAnimal[i].capacidadProduccion, objetoAnimal[i].tipoDeProduccion, objetoAnimal[i].felicidad, objetoAnimal[i].apetito, objetoAnimal[i].sed);
+                            animals.push(nuevoAnimal);
+                    }
+                };
 
-    animals.push(vaca);
+                granja = new Granja(objetoGranja[0].dinero, objetoGranja[0].huevos, objetoGranja[0].leche, objetoGranja[0].tocino, objetoGranja[0].maiz, objetoGranja[0].alimento, objetoGranja[0].pasto);
+            }
+        };
+        xhttp.open("GET", "animal.json", false);
+        xhttp.send();
 
-    vaca = new Vaca('Clotilde', '15', '1.30', '420', '180', '70', '110', 60, 'Leche', '10');
-    vaca.color = 'green';
 
-    animals.push(vaca);
-
-    vaca = new Vaca('Florina', '8', '1.37', '435', '188', '79', '109', 40, 'Leche', '100');
-    vaca.color = 'cyan';
-
-    animals.push(vaca);
-
-    vaca = new Vaca('Juana', '12', '1.45', '510', '225', '85', '140', 100, 'Leche', '70');
-    vaca.color = 'brown';
-
-    animals.push(vaca);
-
-    var perro = new Perro('Tommy', '6', '0.70', '15', '75', '20', '55', '0', 'N/A', '100');
-    perro.color = 'purple';
-    perro.tipo = 'perro'
-    animals.push(perro);
-
-    var gato = new Gato('Benjie', '2', '0.45', '5', '45', '15', '30', '0', 'N/A', '100');
-    gato.color = 'purple';
-    gato.tipo = 'gato'
-    animals.push(gato);
-
-    var cerdo = new Cerdo('Pinta', '4', '1', '92', '115', '25', '85', '30', 'Tocino', '100');
-    cerdo.color = 'purple';
-    cerdo.tipo = 'cerdo'
-    animals.push(cerdo);
-
-    var caballo = new Caballo('Lucero', '2', '1.45', '5', '45', '15', '30', '0', 'N/A', '100');
-    caballo.color = 'purple';
-    caballo.tipo = 'caballo';
-    animals.push(caballo);
-
-    var gallina = new Gallina('Misinga', '2', '0.35', '3', '15', '6', '9', '30', 'Huevos', '100');
-    gallina.color = 'purple';
-    gallina.tipo = 'gallina'
-    animals.push(gallina);
-
-    var pato = new Pato('Donny', '3', '0.38', '4', '23', '8', '15', '30', 'Huevos', '100');
-    pato.color = 'purple';
-    pato.tipo = 'pato'
-    animals.push(pato);
-    var granja = new Granja('2000', '200', '600', '60', '50', '3000', '1')
 
     console.log(animals);
     console.log(granja);
@@ -173,7 +172,20 @@ function init() {
         
                 var animalFelicidad = document.getElementById('animalFelicidad');
                 animalFelicidad.innerHTML = `Nivel de felicidad: ${selectAnimal.felicidad}%`;
+                var animalApetito = document.getElementById('animalApetito');
+                
+                var animalSed = document.getElementById('animalSed');
+
+                window.setInterval(
+                    function () {
         
+                        animalCapProduccion.innerHTML = `Cantidad de producción: ${parseFloat(Math.round(currentAnimalSelected.cantidadDeProducto * 100) / 100).toFixed(2)}`;
+                        animalFelicidad.innerHTML = `Nivel de felicidad: ${parseFloat(Math.round(currentAnimalSelected.felicidad))}%`;
+                        animalApetito.innerHTML = `Apetito = ${parseFloat(Math.round(currentAnimalSelected.apetito))}`;
+                        animalSed.innerHTML = `Sed = ${parseFloat(Math.round(currentAnimalSelected.sed))}`;
+        
+                    }, 1000);
+                    
                 var btnComer = document.getElementById('comerBtn');
                 btnComer.innerHTML = "Comer";
                 btnComer.classList.add('btnStyle');
@@ -181,6 +193,10 @@ function init() {
                 var btnBeber = document.getElementById('beberBtn');
                 btnBeber.innerHTML = "Beber";
                 btnBeber.classList.add('btnStyle');
+
+                var btnAcariciar = document.getElementById('acariciarBtn');
+                btnAcariciar.innerHTML = "Acariciar";
+                btnAcariciar.classList.add('btnStyle');
         
                 var btnProducir = document.getElementById('producirBtn');
                 var accionProducir = determinarProduccion(selectAnimal.tipo)
@@ -218,16 +234,18 @@ function init() {
     function determinarProduccion(panimal) {
         var procesoProduccion = "";
 
-        if (panimal === 'vaca') {
-            procesoProduccion = "Ordeñar";
-        } else {
-            if (panimal === 'gallina' || panimal === 'pato') {
+        switch (panimal) {
+            case "vaca":
+                procesoProduccion = "Ordeñar";
+                break;
+            case "gallina":
                 procesoProduccion = "Recolectar huevos";
-            } else {
-                if (panimal === 'cerdo') {
-                    procesoProduccion = "Recoger tocino";
-                }
-            }
+                break;
+            case "pato":
+                procesoProduccion = "Recolectar huevos";
+                break;
+            case "cerdo":
+                procesoProduccion = "Recoger tocino";
         }
 
         console.log(procesoProduccion);
@@ -350,14 +368,32 @@ function init() {
                     break;
 
                     default:
-                        console.log('seleccione un alimento');                }
+                        console.log('seleccione un alimento');               
+                }
+
+                var costoTotalCompra = determinarPrecioAlimento * cantidadAComprar;
+                
+                    if (granja.dinero >= costoTotalCompra) {
+                        granja.dinero -= costoTotalCompra;
+            
+                        producto += cantidadAComprar;
+            
+                        document.getElementById('dineroGranja').innerHTML = `Dinero: $ ${granja.dinero}`;
+            
+                        if (alimentoSeleccionado == "alimento") {
+                            document.getElementById('alimentoGranja').innerHTML = `Alimento ${producto}`;
+                        } else {
+                            if (alimentoSeleccionado == "pasto") {
+                                document.getElementById('pastoGranja').innerHTML = `Pasto ${producto}`;
+                            } else {
+                                if (alimentoSeleccionado == "maiz") {
+                                    document.getElementById('maizGranja').innerHTML = `Maiz ${producto}`;
+                                }
+                            }
+                        }
+                    }
+                    ocultarPopUp();
         }
-
-
-
-
-
-
 
 
     function crearAnimalUI(panimal) {
@@ -371,9 +407,33 @@ function init() {
         title.innerHTML = panimal.nombre;
         animal.appendChild(title);
 
-        var happiness = document.createElement('p');
-        happiness.innerHTML = 'Felicidad = ' + panimal.felicidad + '%';
-        animal.appendChild(happiness);
+        var felicidad = document.createElement('p');
+        
+                window.setInterval(
+                    function () {
+                        felicidad.innerHTML = `Felicidad = ${parseFloat(Math.round(panimal.felicidad))} %`;
+        
+                    }
+                )
+                animal.appendChild(felicidad);
+
+                if (panimal.tipo === 'vaca' || panimal.tipo === 'cerdo' || panimal.tipo === 'pato' || panimal.tipo === 'gallina') {
+                    var nivelProduccion = document.createElement('p');
+        
+                    window.setInterval(
+                        function () {
+                            var porcentajeProduccion = panimal.cantidadDeProducto / panimal.capacidadProduccion * 100;
+        
+                            if (porcentajeProduccion > 100) {
+                                porcentajeProduccion = 100;
+                            };
+        
+                            nivelProduccion.innerHTML = `Producción = ${parseFloat(Math.round(porcentajeProduccion))} %`;
+        
+                        }, 1000);// Intervalo de tiempo
+        
+                    animal.appendChild(nivelProduccion);
+                };    
 
         var imageAnimal = document.createElement('div');
         imageAnimal.classList.add(panimal.tipo);
@@ -382,9 +442,120 @@ function init() {
         animal.addEventListener('click', onAnimalCardClick, false);
     }
 
-    function producirBtnAction(e) {
-        console.log(e);
-        currentAnimalSelected.producir();
+    //comer
+
+    function comer() {
+        
+        var restarComida = null;
+
+        if(currentAnimalSelected.tipo === 'vaca' || currentAnimalSelected.tipo === 'caballo'){
+            restarComida = currentAnimalSelected.comer(granja.pasto);
+            granja.pasto = restarComida;
+            pastoGranja.innerHTML = `Pasto: ${granja.pasto}`;
+        }else{
+            if(currentAnimalSelected.tipo === 'pato' || currentAnimalSelected.tipo === 'gallina'){
+                restarComida = currentAnimalSelected.comer(granja.maiz);
+                granja.maiz = restarComida;
+                console.log(granja.maiz);
+                maizGranja.innerHTML = `Maiz: ${granja.maiz}`;
+            }else{
+                restarComida = currentAnimalSelected.comer(granja.alimento);
+                granja.alimento = restarComida;
+                alimentoGranja.innerHTML = `Alimento: ${granja.alimento}`;
+            }
+        }
     }
 
+    function beber() {
+        currentAnimalSelected.beber();
+    }
+
+    function acariciar() {
+        currentAnimalSelected.acariciar();
+    }
+
+
+    function producirBtnAction(e) {
+        console.log(e);
+        switch (currentAnimalSelected.tipo) {
+            case 'vaca':
+
+                var sumarProduccion = currentAnimalSelected.producir(granja.leche);
+                granja.leche = sumarProduccion;
+                lecheGranja.innerHTML = `Leche: ${parseFloat(Math.round(granja.leche))}`;
+
+                break;
+            case 'cerdo':
+
+                var sumarProduccion = currentAnimalSelected.producir(granja.tocino);
+                granja.tocino = sumarProduccion;
+                tocinoGranja.innerHTML = `Tocino: ${parseFloat(Math.round(granja.tocino))}`;
+
+                break;
+            case 'pato':
+
+                var sumarProduccion = currentAnimalSelected.producir(granja.huevos);
+                granja.huevos = sumarProduccion;
+                huevosGranja.innerHTML = `Huevos: ${parseFloat(Math.round(granja.huevos))}`;
+
+                break;
+            case 'gallina':
+
+                var sumarProduccion = currentAnimalSelected.producir(granja.huevos);
+                granja.huevos = sumarProduccion;
+                huevosGranja.innerHTML = `Huevos: ${parseFloat(Math.round(granja.huevos))}`;
+        }
+    }
 }
+
+function venderProducto(e) {
+    var productoAVender = document.getElementById('slctVender').value;
+    var cantidadAVender = parseInt(document.getElementById('cantidadProducto').value);
+    var ganancia = null;
+
+    switch (productoAVender) {
+        case 'leche':
+            if (granja.leche >= cantidadAVender) {
+                granja.leche -= cantidadAVender;
+                ganancia = precioDeLeche * cantidadAVender;
+                granja.dinero += ganancia;
+
+                document.getElementById('dineroGranja').innerHTML = `Dinero: $ ${granja.dinero}`;
+                document.getElementById('lecheGranja').innerHTML = `Leche: ${parseFloat(Math.round(granja.leche * 100) / 100).toFixed(1)}`;
+                ocultarPopUp();
+            } else {
+                console.log(`No hay suficiente producto`);
+            };
+            break;
+
+        case 'huevos':
+            if (granja.huevos >= cantidadAVender) {
+                granja.huevos -= cantidadAVender;
+                ganancia = precioDeHuevos * cantidadAVender;
+                granja.dinero += ganancia;
+
+                document.getElementById('dineroGranja').innerHTML = `Dinero: $ ${granja.dinero}`;
+                document.getElementById('huevosGranja').innerHTML = `Huevos: ${parseFloat(Math.round(granja.huevos * 100) / 100).toFixed(1)}`;
+                ocultarPopUp();
+            } else {
+                console.log(`No hay suficiente producto`);
+            };
+            break;
+
+        case 'tocino':
+            if (granja.tocino >= cantidadAVender) {
+                granja.tocino -= cantidadAVender;
+                ganancia = precioDeTocino * cantidadAVender;
+                granja.dinero += ganancia;
+
+                document.getElementById('dineroGranja').innerHTML = `Dinero: $ ${granja.dinero}`;
+                document.getElementById('tocinoGranja').innerHTML = `Tocino: ${parseFloat(Math.round(granja.tocino * 100) / 100).toFixed(1)}`;
+                ocultarPopUp();
+            } else {
+                console.log(`No hay suficiente producto`);
+            };
+    }
+
+
+
+};
