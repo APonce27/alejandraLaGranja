@@ -118,18 +118,73 @@ html, body {
 }
 
 /*PopUps*/
-.popupContainer {
-    position: absolute;
-    display: block;
-    z-index: 100000001;
-    left: 0;
-    top: 0;
-    width: 100%;
-    overflow: hidden;
-    opacity: 1;
-    background-color: rgba(0,0,0,0.82);
-}
+
 
 .ocultarPopUp{
     display: none;
+}
+
+.popupContainer {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#cerrarVentaPopUp,
+#cerrarCompraPopUp {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: none;
+    border: none;
+    top: 0;
+    right: 5%;
+}
+
+.compras, .ventas{
+    width: 300px;
+    margin: 10em auto 0;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 3em 0;
+    position: relative;
+}
+
+.compras h2, .ventas h2{
+    margin: 0 0 2em
+}
+
+.btnProduccion, .ventas button, .compras button{
+    width: 80%;
+    padding: 0.5em 0;
+    border-radius: 5px;
+    margin: 0.5em auto;
+    border: 1px solid gray;
+    background: rgba(255,255,255, 0.5);
+}
+
+.btnProduccion:hover, .ventas button:hover, .compras button:hover {
+    background: gray;
+    color: white
+}
+
+.btnCont, .slct{
+    width: 80%;
+    padding: 0.5em 0;
+    border-radius: 5px;
+    margin: 0.5em auto;
+    border: 1px solid gray;
+    background: rgba(255,255,255, 0.5);
+    font-size: 1em
+}
+
+.cantidadAlimento{
+    width: 55%;
+}
+
+
+.btnCont:hover {
+    background: gray;
+    color: white
 }

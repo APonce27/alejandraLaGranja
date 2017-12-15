@@ -188,15 +188,15 @@ function init() {
                     
                 var btnComer = document.getElementById('comerBtn');
                 btnComer.innerHTML = "Comer";
-                btnComer.classList.add('btnStyle');
+                btnComer.classList.add('btnCont');
         
                 var btnBeber = document.getElementById('beberBtn');
                 btnBeber.innerHTML = "Beber";
-                btnBeber.classList.add('btnStyle');
+                btnBeber.classList.add('btnCont');
 
                 var btnAcariciar = document.getElementById('acariciarBtn');
                 btnAcariciar.innerHTML = "Acariciar";
-                btnAcariciar.classList.add('btnStyle');
+                btnAcariciar.classList.add('btnCont');
         
                 var btnProducir = document.getElementById('producirBtn');
                 var accionProducir = determinarProduccion(selectAnimal.tipo)
@@ -204,10 +204,10 @@ function init() {
                 btnProducir.innerHTML = accionProducir;
         
                 if (accionProducir) {
-                    btnProducir.classList.add('btnStyle');
+                    btnProducir.classList.add('btnCont');
                     btnProducir.classList.remove('btnOcultar');
                 } else {
-                    btnProducir.classList.remove('btnStyle');
+                    btnProducir.classList.remove('btnCont');
                     btnProducir.classList.add('btnOcultar');
                 };
             }
